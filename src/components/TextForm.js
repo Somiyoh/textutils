@@ -5,6 +5,7 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     let newText = text.toUpperCase()
     setText(newText)
+    props.showAlert('Changed to Uppercase', 'success')
   }
 
   const handleOnChange = (event) => {
@@ -14,12 +15,14 @@ export default function TextForm(props) {
   const handleDownClick = () => {
     let newText = text.toLowerCase()
     setText(newText)
+    props.showAlert('Changed to Lowercase', 'success')
   }
 
   const handleClearClick = () => {
     let newText = ''
     setText(newText)
     setResult(0)
+    props.showAlert('Text cleared', 'success')
   }
 
   const handleCompClick = () => {
@@ -33,6 +36,7 @@ export default function TextForm(props) {
       84.6 * (syllables / words.length)
 
     setResult(fleschKincaid.toFixed(2))
+    props.showAlert('The result is shown', 'success')
   }
 
   const [text, setText] = useState('')
@@ -78,11 +82,11 @@ export default function TextForm(props) {
       >
         <h2>Your text summary</h2>
         <p>
-          {text.split(' ').length - 1} words and {text.length} characters
+          {text.split(' ').length - 1} words and {text.length}  characters
         </p>
         <p>Your text can be read in {0.008 * text.split(' ').length} minutes</p>
         <h2>Preview</h2>
-        <p>{text === ""? "Enter your text to preview here" : text}</p>
+        <p>{text === '' ? 'Enter your text to preview here' : text}</p>
 
         <h2>Readablility Score</h2>
         <p>The Flesch-Kincaid readability score of this text is {result}</p>
