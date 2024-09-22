@@ -25,10 +25,13 @@ Ensure you have Node.js (12.x or later recommended) and npm installed:
    ```bash
    git clone https://github.com/your-username/TextUtils.git
 2. Navigate to the TextUtils directory:
+    ```bash
     cd TextUtils
 3. Install necessary dependencies:
+    ```bash
     npm install
 4. Start the application in development mode with:
+    ```bash
     npm start
 
 
