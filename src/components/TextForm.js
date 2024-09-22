@@ -62,16 +62,32 @@ export default function TextForm(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleUpClick}
+        >
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleDownClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleDownClick}
+        >
           Convert to Lowercase
         </button>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleClearClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleClearClick}
+        >
           Clear text
         </button>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleCompClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleCompClick}
+        >
           Calculate readibility score
         </button>
       </div>
@@ -82,9 +98,19 @@ export default function TextForm(props) {
       >
         <h2>Your text summary</h2>
         <p>
-          {text.split(' ').filter((element) => {return element.length !== 0}).length} words and {text.length}  characters
+          {
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0
+            }).length} words and {text.replace(/\s+/g, '').length} characters
         </p>
-        <p>Your text can be read in {0.008 * text.split(' ').filter((element) => {return element.length !== 0}).length} minutes</p>
+        <p>
+          Your text can be read in{' '}
+          {0.008 *
+            text.split(' ').filter((element) => {
+              return element.length !== 0
+            }).length}{' '}
+          minutes
+        </p>
         <h2>Preview</h2>
         <p>{text === '' ? 'Enter your text to preview here' : text}</p>
 
