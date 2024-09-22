@@ -84,7 +84,7 @@ export default function TextForm(props) {
         <p>
           {text.split(' ').filter((element) => {return element.length !== 0}).length} words and {text.length}  characters
         </p>
-        <p>Your text can be read in {0.008 * text.split(' ').length} minutes</p>
+        <p>Your text can be read in {0.008 * text.split(' ').filter((element) => {return element.length !== 0}).length} minutes</p>
         <h2>Preview</h2>
         <p>{text === '' ? 'Enter your text to preview here' : text}</p>
 
