@@ -33,5 +33,3 @@ Ensure you have Node.js (12.x or later recommended) and npm installed:
 4. Start the application in development mode with:
     ```bash
     npm start
-
-
